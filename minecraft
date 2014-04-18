@@ -21,8 +21,8 @@
 
 #Settings
 SERVICE='McMyAdmin.exe'
-USERNAME="freeman"
-MCPATH='/home/freeman/minecraft'
+USERNAME="minecraft"
+MCPATH='/var/minecraft/nclfcraft'
 ## If you have more than one Minecraft instance to control, add additional MCPATH
 ## variables below
 # MCPATH2='/home/mcuser/minecraft2'
@@ -44,9 +44,9 @@ mc_start() {
 		else
 			echo "$SERVICE was not running... starting."
 			cd $MCPATH
-			as_user "cd $MCPATH && screen -dmS minecraft mono McMyAdmin.exe /home/freeman/minecraft/McMyAdmin.conf"
+			as_user "cd $MCPATH && screen -dmS minecraft ./MCMA_Linux_x86_64"
 			## Add additional lines for additioanl Minecrat instances below here
-			# as_user "cd $MCPATH2 && screen -dmS minecraft mono McMyAdmin.exe /home/freeman/minecraft/McMyAdmin.conf"
+			# as_user "cd $MCPATH2 && screen -dmS minecraft ./MCMA_Linux_x86_64"
 			sleep 7
 			if ps ax | grep -v grep | grep -v -i SCREEN | grep $SERVICE > /dev/null
 				then
